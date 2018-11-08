@@ -1,40 +1,52 @@
-'use strict';
+"use strict";
 
-eventsApp.controller("EventController",
-    function EventController($scope) {
-        $scope.event = {
-            name: "Angular Boot Camp",
-            date: "1/2/2013",
-            time: "10:30 am",
-            location: {
-                address: "Google Headquarters",
-                city: "Mountain View",
-                province: "CA"
-            },
-            imageUrl: "./img/angularjs-logo.png",
-            sessions: [
-                {
-                    name: "Directives Masterclass",
-                    creatorName: "Bob Smith",
-                    duration: "1 hr",
-                    level: "Advanced",
-                    abstract: "In this session you will learn the ins and outs of directives!"
+eventsApp.controller("EventController", function EventController($scope) {
+  $scope.event = {
+    name: "Angular Boot Camp",
+    date: "1/2/2013",
+    time: "10:30 am",
+    location: {
+      address: "Google Headquarters",
+      city: "Mountain View",
+      province: "CA"
+    },
+    imageUrl: "./img/angularjs-logo.png",
+    sessions: [
+      {
+        name: "Directives Masterclass",
+        creatorName: "Bob Smith",
+        duration: "1 hr",
+        level: "Advanced",
+        abstract:
+          "In this session you will learn the ins and outs of directives!",
+        upVoteCount: 3
+      },
+      {
+        name: "Scopes for fun and profit",
+        creatorName: "Bob Smith",
+        duration: "1 hr",
+        level: "Advanced",
+        abstract:
+          "In this session you will learn the ins and outs of directives!",
+        upVoteCount: 2
+      },
+      {
+        name: "Well Behaved Controllers",
+        creatorName: "Bob Smith",
+        duration: "1 hr",
+        level: "Advanced",
+        abstract:
+          "In this session you will learn the ins and outs of directives!",
+          upVoteCount: 35
+      }
+    ]
+  };
 
-                },
-                {
-                    name: "Scopes for fun and profit",
-                    creatorName: "Bob Smith",
-                    duration: "1 hr",
-                    level: "Advanced",
-                    abstract: "In this session you will learn the ins and outs of directives!"
-                },
-                {
-                    name: "Well Behaved Controllers",
-                    creatorName: "Bob Smith",
-                    duration: "1 hr",
-                    level: "Advanced",
-                    abstract: "In this session you will learn the ins and outs of directives!"
-                }
-            ]
-        };
-    });
+  $scope.upVoteSession = function(session){
+    session.upVoteCount++;
+  };
+
+  $scope.downVoteSession = function(session){
+    session.upVoteCount--;
+  };
+});
